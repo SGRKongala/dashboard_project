@@ -1,10 +1,11 @@
-# Create render.yaml
-cat > render.yaml << EOL
-services:
-  - type: web
-    name: my-dashboards
-    env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
-    plan: free
-EOL
+   services:
+     - type: web
+       name: my-dashboards
+       env: python
+       buildCommand: pip install -r requirements.txt
+       startCommand: python app.py
+       plan: free
+       disk:
+         name: data
+         mountPath: /data
+         sizeGB: 1
