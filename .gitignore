@@ -1,0 +1,23 @@
+# Create .gitignore
+cat > .gitignore << EOL
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+
+# Large data files
+data/
+*.csv
+EOL

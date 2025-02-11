@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  metrics_app:
+    build: .
+    command: python app_metrics.py
+    ports:
+      - "8080:8080"  # Maps port 8051 on the host to port 8051 in the container
+    volumes:
+      - ./data:/app/data:ro  # Mounts the data directory as read-only
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=production
+    networks:
+      - app_network
+
+  corruption_app:
+    build: .
+    command: python app_corruption.py
+    ports:
+      - "8052:8052"  # Maps port 8052 on the host to port 8052 in the container
+    volumes:
+      - ./data:/app/data:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+      - FLASK_ENV=production
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge

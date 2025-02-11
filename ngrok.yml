@@ -1,0 +1,9 @@
+version: "2"
+authtoken: 2sbmqCgsrx8ey74R9cVpcbefW2L_5x1UjPbqbDNXN8CFKTqHH
+tunnels:
+  metrics:
+    proto: http
+    addr: 8051
+  corruption:
+    proto: http
+    addr: 8052 
